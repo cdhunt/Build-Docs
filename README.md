@@ -1,6 +1,6 @@
 # Build-Docs
 
-TBD.
+Helper for building markdown docs from PowerShell Command Help.
 
 ## Commands
 
