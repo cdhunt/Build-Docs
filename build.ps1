@@ -179,13 +179,22 @@ function Docs {
 
     $help = Get-HelpModuleData $module
 
-    # README
+    $help | New-HelpDoc |
+    Add-ModuleProperty Name -H1 |
+    Add-ModuleProperty Description |
+    Add-HelpDocText 'Install' -H2 |
+    Add-HelpDocText 'TBD' |
+    Add-HelpDocText 'Docs' -H2 |
+    Add-HelpDocText '[Full Docs](docs)' |
+    Out-HelpDoc -Path 'README.md'
+
+    # docs/README.md
     $help | New-HelpDoc |
     Add-ModuleProperty Name -H1 |
     Add-ModuleProperty Description |
     Add-HelpDocText "Commands" -H2 |
     Add-ModuleCommands -AsLinks |
-    Out-HelpDoc -Path 'README.md'
+    Out-HelpDoc -Path 'docs/README.md'
 
     # Individual Commands
     foreach ($command in $help.Commands) {
