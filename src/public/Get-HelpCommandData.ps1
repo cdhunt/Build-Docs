@@ -15,16 +15,20 @@ function Get-HelpCommandData {
 
             '{0} {1}{2}' -f $heading, $this.Name, [System.Environment]::NewLine
 
-            $this.Description
+            if ($null -ne $this.Description) {
+                $this.Description
 
-            '{1}{0}# Parameters' -f $heading, [System.Environment]::NewLine
+                '{1}{0}# Parameters' -f $heading, [System.Environment]::NewLine
+            }
 
-            $this.ParameterSet.ToMD()
+            if ($null -ne $this.ParameterSet) {
+                $this.ParameterSet.ToMD()
 
-            if ($this.Example.Count -gt 0) {
-                '{1}{0}# Examples{1}' -f $heading, [System.Environment]::NewLine
+                if ($this.Example.Count -gt 0) {
+                    '{1}{0}# Examples{1}' -f $heading, [System.Environment]::NewLine
 
-                $this.Example.ToMD()
+                    $this.Example.ToMD()
+                }
             }
 
             if ($this.Link.Count -gt 0) {

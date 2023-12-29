@@ -4,17 +4,22 @@ function Get-ParameterSet ([pscustomobject]$Help) {
     $parameterToMD = [scriptblock] {
         param([string]$formatString = '- `[{0}]` **{1}** _{2}_ {3}')
 
-        return $formatString -f $this.Type, $this.Name, $this.Description, ($this.attributes -join ', ')
+        if ($null -ne $this) {
+            return $formatString -f $this.Type, $this.Name, $this.Description, ($this.attributes -join ', ')
+        } else { return [string]::Empty }
     }
 
     $parameterSetToMd = [scriptblock] {
         param([string]$Heading = '###', [bool]$ShowHeading = $true)
 
-        if ($ShowHeading) {
-            '{2}{0} Parameter Set {1}{2}' -f $Heading, $this.Number, [System.Environment]::NewLine
-        }
+        if ($null -ne $this -and $this.Parameter.Count -gt 0) {
+            if ($ShowHeading) {
+                '{2}{0} Parameter Set {1}{2}' -f $Heading, $this.Number, [System.Environment]::NewLine
+            }
 
-        $this.Parameter.ToMD()
+            $this.Parameter.ToMD()
+
+        } else { return [string]::Empty }
     }
 
     $parameterToString = [scriptblock] {

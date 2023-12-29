@@ -17,7 +17,7 @@ function Add-ModuleCommands {
     process {
         foreach ($command in $HelpDoc.HelpModuleData.Commands) {
             $name = $command.Name
-            $desc = if ($command.Synopsis -match $name) { 'No parameter help description' } else { $command.Synopsis }
+            $desc = if ($command.Synopsis -match $name) { 'No help description' } else { $command.Synopsis }
             $HelpDoc.Text += $formatString -f $name, $desc, [System.Environment]::NewLine
         }
         $HelpDoc | Write-Output
