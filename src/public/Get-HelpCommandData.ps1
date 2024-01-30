@@ -36,6 +36,12 @@ function Get-HelpCommandData {
 
                 $this.Link.ToMD()
             }
+
+            if ($this.Note.Count -gt 0) {
+                '{1}{0}# Notes{1}' -f $heading, [System.Environment]::NewLine
+
+                $this.Note.ToMD()
+            }
         }
     }
 
@@ -50,6 +56,7 @@ function Get-HelpCommandData {
             Description  = Get-Description $helpSource $helpSource.Synopsis
             ParameterSet = Get-ParameterSet $helpSource
             Example      = Get-Example $helpSource
+            Note         = Get-Note $helpSource
             Link         = Get-Link $helpSource
         }
 
