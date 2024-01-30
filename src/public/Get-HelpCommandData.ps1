@@ -42,6 +42,12 @@ function Get-HelpCommandData {
 
                 $this.Note.ToMD()
             }
+
+            if ($this.Output.Count -gt 0) {
+                '{1}{0}# Outputs{1}' -f $heading, [System.Environment]::NewLine
+
+                $this.Output.ToMD()
+            }
         }
     }
 
@@ -58,6 +64,7 @@ function Get-HelpCommandData {
             Example      = Get-Example $helpSource
             Note         = Get-Note $helpSource
             Link         = Get-Link $helpSource
+            Output       = Get-Output $helpSource
         }
 
         $commandData | Add-Member -MemberType ScriptMethod -Name ToMD -Value $commandToMd
