@@ -1,12 +1,19 @@
 function Get-HelpCommandData {
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'byName')]
     param (
         [Parameter(Mandatory,
             Position = 0,
             ValueFromPipeline,
-            ValueFromPipelineByPropertyName)]
+            ValueFromPipelineByPropertyName, ParameterSetName = 'byName')]
         [String]
-        $Name
+        $Name,
+
+        [Parameter(Mandatory,
+            Position = 0,
+            ValueFromPipeline,
+            ParameterSetName = 'byObject')]
+        [PSCustomObject]
+        $HelpSource
     )
 
     begin {
@@ -53,7 +60,9 @@ function Get-HelpCommandData {
 
     process {
 
-        $helpSource = Get-Help -Name $Name -Category Function
+        if ($PSBoundParameters.ContainsKey('Name')) {
+                $helpSource = Get-Help -Name $Name -Category Function
+            }
 
         $commandData = [PSCustomObject]@{
             PSTypeName   = 'HelpCommandData'
