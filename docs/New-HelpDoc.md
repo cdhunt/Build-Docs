@@ -9,3 +9,8 @@ New-HelpDoc [-HelpModuleData] <psobject> [<CommonParameters>]
 ### Parameter Set 1
 
 - `[psobject]` **HelpModuleData** _Parameter help description_ Mandatory, ValueFromPipeline
+
+## Outputs
+
+- `System.Collections.Hashtable
+`

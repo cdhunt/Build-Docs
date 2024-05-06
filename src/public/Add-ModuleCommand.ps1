@@ -1,4 +1,4 @@
-function Add-ModuleCommands {
+function Add-ModuleCommand {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory, Position = 0, ValueFromPipeline)]

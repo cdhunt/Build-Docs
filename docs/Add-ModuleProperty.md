@@ -34,3 +34,7 @@ Add-ModuleProperty [-Property] <string> [-HelpDoc] <psobject> [-H1] [<CommonPara
 - `[string]` **Property** _Parameter help description_ Mandatory
 - `[psobject]` **HelpDoc** _Parameter help description_ Mandatory, ValueFromPipeline
 - `[Switch]` **H1** _Parameter help description_ 
+
+## Outputs
+
+- `System.Object`

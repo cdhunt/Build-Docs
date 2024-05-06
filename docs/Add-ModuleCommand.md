@@ -1,7 +1,7 @@
-# Add-ModuleCommands
+# Add-ModuleCommand
 
 
-Add-ModuleCommands [-HelpDoc] <psobject> [-AsLinks] [<CommonParameters>]
+Add-ModuleCommand [-HelpDoc] <psobject> [-AsLinks] [<CommonParameters>]
 
 
 ## Parameters
@@ -10,3 +10,7 @@ Add-ModuleCommands [-HelpDoc] <psobject> [-AsLinks] [<CommonParameters>]
 
 - `[psobject]` **HelpDoc** _Parameter help description_ Mandatory, ValueFromPipeline
 - `[Switch]` **AsLinks** _Parameter help description_ 
+
+## Outputs
+
+- `System.Object`

@@ -10,3 +10,7 @@ Out-HelpDoc [[-Path] <string>] [-HelpDoc] <psobject> [<CommonParameters>]
 
 - `[string]` **Path** _Parameter help description_ 
 - `[psobject]` **HelpDoc** _Parameter help description_ Mandatory, ValueFromPipeline
+
+## Outputs
+
+- `System.Object`

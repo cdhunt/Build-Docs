@@ -193,7 +193,7 @@ function Docs {
     Add-ModuleProperty Name -H1 |
     Add-ModuleProperty Description |
     Add-HelpDocText "Commands" -H2 |
-    Add-ModuleCommands -AsLinks |
+    Add-ModuleCommand -AsLinks |
     Out-HelpDoc -Path 'docs/README.md'
 
     # Individual Commands

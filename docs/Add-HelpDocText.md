@@ -34,3 +34,7 @@ Add-HelpDocText [-Text] <string> [-HelpDoc] <psobject> [-H1] [<CommonParameters>
 - `[string]` **Text** _Parameter help description_ Mandatory
 - `[psobject]` **HelpDoc** _Parameter help description_ Mandatory, ValueFromPipeline
 - `[Switch]` **H1** _Parameter help description_ 
+
+## Outputs
+
+- `System.Object`

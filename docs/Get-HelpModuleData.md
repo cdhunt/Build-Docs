@@ -9,3 +9,7 @@ Get-HelpModuleData [-Name] <string> [<CommonParameters>]
 ### Parameter Set 1
 
 - `[string]` **Name** _Parameter help description_ Mandatory, ValueFromPipeline
+
+## Outputs
+
+- `System.Object`
