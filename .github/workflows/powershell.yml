@@ -135,7 +135,7 @@ jobs:
       contents: read # for actions/checkout to fetch code
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     name: Publish
-    #needs: [test7, test5]
+    needs: [build]
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/dotnet/sdk:8.0
