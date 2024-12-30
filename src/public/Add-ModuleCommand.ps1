@@ -1,3 +1,23 @@
+<#
+.SYNOPSIS
+    Generate a Markdown list of the commands in the module and their summary.
+.DESCRIPTION
+    Generate a Markdown list of the commands in the module and optionally format as links.
+.PARAMETER HelpDoc
+    A HelpDoc object.
+.PARAMETER AsLinks
+    Format each list item as a link to a `{commandname}.md`.
+.LINK
+    New-HelpDock
+.EXAMPLE
+    Get-HelpModuleData build-docs | New-HelpDoc | Add-ModuleCommand -AsLinks | select -exp Text
+    - [Add-HelpDocText](Add-HelpDocText.md) _Return a markdown formatted text._
+    - [Add-ModuleCommand](Add-ModuleCommand.md) _Generate a Markdown list of the commands in the module._
+    - [Add-ModuleProperty](Add-ModuleProperty.md) _Return a markdown formatted value for the given property._
+    …
+
+    Generate a list of commands with links to the commands' help documents.
+#>
 function Add-ModuleCommand {
     [CmdletBinding()]
     param (

@@ -1,3 +1,30 @@
+<#
+.SYNOPSIS
+    Return a markdown formatted text.
+.DESCRIPTION
+    Return the given string optionally formatted as a Header.
+.PARAMETER HelpDoc
+    A HelpDoc object.
+.PARAMETER Text
+    A string to add to the HelpDoc.
+.PARAMETER H1
+    Format the text as an H1 header.
+.PARAMETER H2
+    Format the text as an H2 header.
+.PARAMETER H3
+    Format the text as an H3 header.
+.NOTES
+    If no Header switch is provided, the default is no formatting.
+.LINK
+    New-HelpDoc
+.LINK
+    Get-HelpModuleData
+.EXAMPLE
+    Get-HelpModuleData build-docs | New-HelpDoc | Add-HelpDocText -Text "My Module Help" -H1 | Out-HelpDoc
+    # My Module Help
+
+    Add a level 1 header with the text "My Module Help".
+#>
 function Add-HelpDocText {
     [CmdletBinding(DefaultParameterSetName = "NoH")]
     param (

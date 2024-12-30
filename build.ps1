@@ -175,18 +175,13 @@ function Publish {
 function Docs {
     param ()
 
+    if ($null -eq (Get-Module Build-Docs -ListAvailable | Where-Object { [version]$_.Version -ge [version]"0.2.0.2" })) {
+        Install-Module -Name Build-Docs -MinimumVersion 0.2.0.2 -Confirm:$false -Force
+    }
+
     Import-Module $publish -Force
 
     $help = Get-HelpModuleData $module
-
-    $help | New-HelpDoc |
-    Add-ModuleProperty Name -H1 |
-    Add-ModuleProperty Description |
-    Add-HelpDocText 'Install' -H2 |
-    Add-HelpDocText 'TBD' |
-    Add-HelpDocText 'Docs' -H2 |
-    Add-HelpDocText '[Full Docs](docs)' |
-    Out-HelpDoc -Path 'README.md'
 
     # docs/README.md
     $help | New-HelpDoc |

@@ -1,3 +1,23 @@
+<#
+.SYNOPSIS
+    Returns an object representation of the help available for the given module.
+.DESCRIPTION
+    Returns an object representation of the help available for the given module. This includes the help for each command in the module.
+.PARAMETER Name
+    The name of the module to interrogate for help data.
+.LINK
+    New-HelpDoc
+.EXAMPLE
+    Get-HelpModuleData build-docs
+    Name            : build-docs
+    Commands        : {@{Name=Add-HelpDocText; Synopsis=
+                    Add-HelpDocText [-Text] <string> [-HelpDoc] <psobject> [<CommonParameters>]
+                    Add-HelpDocText [-Text] <string> [-HelpDoc] <psobject> [-H3] [<CommonParameters>]
+                    Add-HelpDocText [-Text] <string> [-HelpDoc] <psobject> [-H2] [<CommonParameters>]
+                    …
+
+    Returns an object representation of the help available for the given module.
+#>
 function Get-HelpModuleData {
     [CmdletBinding()]
     param (
