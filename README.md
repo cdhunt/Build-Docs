@@ -18,9 +18,11 @@ Helper for building markdown docs from PowerShell Command Help.
 
 ### Getting Started
 
-This module will walk the properties and help for each command in a given module and add a `.ToMD()` ScriptMethod that applies some opinionated markdown formatting. The is entirely based on the output of [Get-Help](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help?view=powershell-7.4) so the help data can be XML-based or comment-based.
+This module will walk the properties and help for each command in a given module and add a `.ToMD()` ScriptMethod that applies some opinionated markdown formatting.
+The is entirely based on the output of [Get-Help](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help?view=powershell-7.4) so the help data can be XML-based or comment-based.
 
 This module adds the `.ToMD()` method to the following command help properties.
+Only properties that are defined are rendered into markdown so you won't have a bunch of empty sections if not defined.
 
 - `Description`
 - `ParameterSet` _(each)_: Adds an H3 header for each parameter set which contains a unordered list of parameters.
